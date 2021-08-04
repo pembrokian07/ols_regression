@@ -18,6 +18,9 @@ def covar(x: Sequence, y: Sequence, mean_x: Number=None, mean_y: Number=None) ->
     n = len(x)
     if n != len(y):
         raise Exception("Inputs x and y should be of same length.")
+        
+    if n < 2:
+        raise Exception("Sequence should have length greater than one.")
     
     mean_x = sum(x)/n if mean_x is None else mean_x
     mean_y = sum(y)/n if mean_y is None else mean_y
@@ -39,7 +42,7 @@ def ols_estimator(x: Sequence, y: Sequence) -> Tuple[float, float]:
         raise Exception("Inputs x and y should be of same length.")
     
     if n < 2:
-        raise Exception("Input sequence should have length greater than one.")
+        raise Exception("Sequence should have length greater than one.")
         
     mean_x = sum(x)/n
     mean_y = sum(y)/n
